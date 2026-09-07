@@ -3,13 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal do ISS Fixo &amp; Sociedades de Profissionais</title>
-  
-  <!-- Fonte Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Portal do ISS Fixo & Sociedades de Profissionais</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --bg-header: #0b192c;
@@ -20,11 +15,12 @@
       --text-muted: #64748b;
       --text-light: #f8fafc;
       --border-color: #e2e8f0;
-      
       --green-primary: #10b981;
       --blue-primary: #2563eb;
+      --blue-dark: #1d4ed8;
+      --amber: #f59e0b;
+      --red: #ef4444;
       --radius: 10px;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     }
 
     * {
@@ -38,12 +34,6 @@
       background-color: var(--bg-body);
       color: var(--text-main);
       line-height: 1.5;
-      -webkit-user-drag: none;
-    }
-
-    .copiavel {
-      user-select: text !important;
-      -webkit-user-select: text !important;
     }
 
     .container {
@@ -52,6 +42,7 @@
       padding: 0 20px;
     }
 
+    /* Header */
     header {
       background-color: var(--bg-header);
       color: var(--text-light);
@@ -119,6 +110,7 @@
       color: var(--green-primary);
     }
 
+    /* Main */
     main {
       padding: 40px 0;
     }
@@ -126,13 +118,101 @@
     .section-title {
       font-size: 1.25rem;
       font-weight: 700;
-      color: var(--text-main);
       margin-bottom: 20px;
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
+    /* Form */
+    .widget-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      margin-bottom: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background-color: #fff;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    select:focus {
+      border-color: var(--blue-primary);
+    }
+
+    .btn {
+      width: 100%;
+      background-color: var(--blue-primary);
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn:hover {
+      background-color: var(--blue-dark);
+    }
+
+    .result-box {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: var(--radius);
+      display: none;
+    }
+
+    .result-apto {
+      background-color: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+    }
+
+    .result-atencao {
+      background-color: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+    }
+
+    .result-inapto {
+      background-color: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+    }
+
+    .badge-status {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    /* Cards */
     .grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -149,7 +229,7 @@
       border: 1px solid var(--border-color);
       border-radius: var(--radius);
       padding: 24px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
       position: relative;
     }
 
@@ -173,7 +253,6 @@
     .card h3 {
       font-size: 1.05rem;
       font-weight: 700;
-      color: var(--text-main);
       margin-bottom: 12px;
     }
 
@@ -199,89 +278,7 @@
       top: -2px;
     }
 
-    .widget-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      margin-bottom: 40px;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    label {
-      display: block;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 6px;
-    }
-
-    select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      background-color: #fff;
-      font-size: 0.95rem;
-      color: var(--text-main);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    select:focus {
-      border-color: var(--blue-primary);
-    }
-
-    .btn {
-      width: 100%;
-      background-color: var(--blue-primary);
-      color: white;
-      padding: 14px;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    .btn:hover {
-      background-color: #1d4ed8;
-    }
-
-    .result-box {
-      margin-top: 20px;
-      padding: 20px;
-      border-radius: var(--radius);
-      display: none;
-    }
-
-    .result-apto {
-      background-color: #ecfdf5;
-      border: 1px solid #a7f3d0;
-      color: #065f46;
-    }
-
-    .result-inapto {
-      background-color: #fef2f2;
-      border: 1px solid #fecaca;
-      color: #991b1b;
-    }
-
-    .badge-status {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-    }
-
+    /* Footer */
     footer {
       background-color: var(--bg-header);
       color: #94a3b8;
@@ -292,14 +289,15 @@
     }
   </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
+  <!-- HEADER -->
   <header>
-    <div class="container header-content copiavel">
+    <div class="container header-content">
       <div>
         <span class="badge-top">Tributação Municipal • Ceará 2026</span>
-        <h1>Simulador &amp; Portal do ISS Fixo</h1>
-        <p>Análise de Enquadramento em Sociedades de Profissionais (Fortaleza &amp; Canindé)</p>
+        <h1>Simulador & Portal do ISS Fixo</h1>
+        <p>Análise de Enquadramento em Sociedades de Profissionais (Fortaleza & Canindé)</p>
       </div>
       <div class="header-info-box">
         <div class="title">Base do Imposto</div>
@@ -309,60 +307,76 @@
   </header>
 
   <main class="container">
-    
-    <!-- 1. DIAGNOSTICADOR INTERATIVO -->
+
+    <!-- DIAGNOSTICADOR -->
     <section>
-      <h2 class="section-title copiavel">📊 Diagnosticador de Elegibilidade Tributária</h2>
+      <h2 class="section-title">📊 Diagnosticador de Elegibilidade Tributária</h2>
       <div class="widget-card">
         <form id="issForm">
           <div class="form-group">
-            <label for="municipio" class="copiavel">1. Selecione o Município do Estabelecimento:</label>
+            <label>1. Selecione o Município do Estabelecimento:</label>
             <select id="municipio" required>
               <option value="">Selecione...</option>
-              <option value="fortaleza">Fortaleza - CE (LC nº 159/2013)</option>
-              <option value="caninde">Canindé - CE (Lei nº 1.839/2006)</option>
+              <option value="fortaleza">Fortaleza - CE</option>
+              <option value="caninde">Canindé - CE</option>
             </select>
           </div>
 
-          <!-- SUBITENS ESPECÍFICOS ADICIONADOS AQUI -->
           <div class="form-group">
-            <label for="atividade" class="copiavel">2. Atividade desenvolvida (Subitens da Tabela do ISSQN):</label>
+            <label>2. Atividade desenvolvida (Subitens da Lista de Serviços):</label>
             <select id="atividade" required>
               <option value="">Selecione a atividade...</option>
-              <option value="saude">Saúde: Medicina, Fisioterapia, Enfermagem, Odontologia, Psicologia, Nutrição, Fonoaudiologia, Biomédica (Itens 4.01, 4.02, 4.06, 4.08, 4.12, 4.13, 4.14)</option>
-              <option value="engenharia">Engenharia, Arquitetura, Agronomia, Geologia, Urbanismo e Agrimensura (Item 7.01)</option>
-              <option value="juridico">Advocacia e Representação Jurídica (Item 17.14)</option>
-              <option value="contabil">Contabilidade, Auditoria, Guarda-livros e Perícia Contábil (Item 17.18)</option>
-              <option value="gestao">Administração, Economia, Estatística e Consultoria Financeira (Item 17.19)</option>
-              <option value="veterinaria">Medicina Veterinária e Zootecnia (Item 5.01)</option>
-              <option value="comunicacao">Jornalismo e Relações Públicas (Item 13.02)</option>
-              <option value="comercio">Comércio / Indústria / Atividades Não Regulamentadas (Outros subitens não previstos)</option>
+              <optgroup label="Saúde">
+                <option value="4.1">4.1 – Medicina e biomedicina</option>
+                <option value="4.2">4.2 – Análises clínicas, radiologia e congêneres</option>
+                <option value="4.6">4.6 – Enfermagem</option>
+                <option value="4.8">4.8 – Fisioterapia, terapia ocupacional e fonoaudiologia</option>
+                <option value="4.9">4.9 – Terapias de qualquer espécie</option>
+                <option value="4.11">4.11 – Obstetrícia</option>
+                <option value="4.12">4.12 – Odontologia</option>
+                <option value="4.13">4.13 – Ortóptica</option>
+                <option value="4.14">4.14 – Próteses sob encomenda</option>
+                <option value="4.16">4.16 – Psicologia</option>
+                <option value="5.1">5.1 / 5.3 – Medicina veterinária</option>
+              </optgroup>
+              <optgroup label="Engenharia e Arquitetura">
+                <option value="7.1">7.1 – Engenharia e Arquitetura (exceto agronomia, agrimensura e geologia)</option>
+              </optgroup>
+              <optgroup label="Ciências Humanas">
+                <option value="17.13">17.13 – Advocacia</option>
+                <option value="17.15">17.15 – Auditoria</option>
+                <option value="17.18">17.18 – Contabilidade</option>
+                <option value="17.19">17.19 – Economia (quando prestado por economista)</option>
+              </optgroup>
+              <optgroup label="Não elegível">
+                <option value="outros">Outras atividades (Comércio, Indústria ou serviços não listados)</option>
+              </optgroup>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="socios" class="copiavel">3. Composição do Quadro Societário:</label>
+            <label>3. Composição do Quadro Societário:</label>
             <select id="socios" required>
               <option value="">Selecione...</option>
-              <option value="homogeneo">Apenas profissionais da mesma habilitação (Uniprofissional)</option>
-              <option value="pluri">Sócios de profissões diferentes (Pluriprofissional)</option>
+              <option value="uniprofissional">Apenas profissionais da mesma habilitação (Uniprofissional)</option>
+              <option value="pluriprofissional">Sócios de profissões diferentes (Pluriprofissional)</option>
               <option value="pj">Possui sócio Pessoa Jurídica (PJ)</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="prestacao" class="copiavel">4. Forma de Prestação do Serviço:</label>
+            <label>4. Forma de Prestação do Serviço:</label>
             <select id="prestacao" required>
               <option value="">Selecione...</option>
               <option value="pessoal">Prestação pessoal e direta pelos sócios</option>
-              <option value="terceirizada">Terceirizada / Estrutura Comercial sem atendimento direto</option>
+              <option value="empresarial">Estrutura empresarial / atendimento impessoal / terceirização</option>
             </select>
           </div>
 
           <button type="button" class="btn" onclick="analisarElegibilidade()">Verificar Elegibilidade</button>
         </form>
 
-        <div id="resultBox" class="result-box copiavel">
+        <div id="resultBox" class="result-box">
           <span id="resultBadge" class="badge-status"></span>
           <h3 id="resultTitle" style="margin-top: 4px; font-size: 1.1rem;"></h3>
           <p id="resultText" style="font-size: 0.95rem; margin-top: 4px;"></p>
@@ -370,22 +384,21 @@
       </div>
     </section>
 
-    <!-- 2. REGRAS GERAIS -->
+    <!-- DIRETRIZES -->
     <section>
-      <h2 class="section-title copiavel">📋 Diretrizes do Regime de ISS Fixo</h2>
+      <h2 class="section-title">📋 Diretrizes do Regime de ISS Fixo</h2>
       <div class="grid grid-3">
-        
-        <div class="card card-highlight copiavel">
+        <div class="card card-highlight">
           <span class="tag-economico">Mais Econômico</span>
           <h3>Atividades Elegíveis</h3>
           <ul>
-            <li><strong>Saúde (Item 4):</strong> Medicina, Fisioterapia, Odontologia e Psicologia.</li>
-            <li><strong>Exatas (Item 7.01):</strong> Engenharia, Arquitetura e Agronomia.</li>
-            <li><strong>Humanas (Item 17):</strong> Advocacia, Contabilidade, Administração e Economia.</li>
+            <li><strong>Saúde:</strong> Medicina, Fisioterapia, Odontologia, Psicologia, Enfermagem e Veterinária.</li>
+            <li><strong>Exatas:</strong> Engenharia e Arquitetura.</li>
+            <li><strong>Humanas:</strong> Advocacia, Contabilidade, Auditoria e Economia.</li>
           </ul>
         </div>
 
-        <div class="card copiavel">
+        <div class="card">
           <h3>Principais Impedimentos</h3>
           <ul>
             <li><strong>Sócio PJ:</strong> Presença de pessoa jurídica no quadro societário.</li>
@@ -394,7 +407,7 @@
           </ul>
         </div>
 
-        <div class="card copiavel">
+        <div class="card">
           <h3>Forma de Apuração</h3>
           <ul>
             <li><strong>Base Fixa:</strong> Calculado por cota fixa mensal em UFM por profissional.</li>
@@ -402,69 +415,55 @@
             <li><strong>Desconto Municipal:</strong> Redução significativa frente à alíquota de 5%.</li>
           </ul>
         </div>
-
       </div>
     </section>
 
-    <!-- 3. DISPOSITIVOS LEGAIS -->
+    <!-- LEGISLAÇÃO -->
     <section>
-      <h2 class="section-title copiavel">⚖️ Catálogo de Dispositivos Legais</h2>
+      <h2 class="section-title">⚖️ Catálogo de Dispositivos Legais</h2>
       <div class="grid grid-3">
-        
-        <div class="card copiavel">
+        <div class="card">
           <span class="badge-status" style="background:#e0f2fe; color:#0369a1;">Âmbito Federal</span>
           <h3>Legislação Geral</h3>
           <ul>
-            <li><strong>DL nº 406/1968:</strong> Art. 9º, §§ 1º e 3º (Cota fixa por profissional).</li>
-            <li><strong>LC nº 123/2006:</strong> Art. 18, § 18 (Fixação municipal no Simples).</li>
-            <li><strong>LC nº 123/2006:</strong> Art. 18, § 22-A (Serviços contábeis).</li>
-            <li><strong>STF Tema 918:</strong> Proteção de Sociedades Limitadas (LTDA).</li>
+            <li><strong>DL nº 406/1968:</strong> Art. 9º, §§ 1º e 3º</li>
+            <li><strong>LC nº 123/2006:</strong> Art. 18, § 18 e § 22-A</li>
+            <li><strong>STF Tema 918:</strong> Proteção de Sociedades Limitadas</li>
+            <li><strong>STJ Tema 1323:</strong> ISS Fixo mesmo em LTDA</li>
           </ul>
         </div>
 
-        <div class="card copiavel">
+        <div class="card">
           <span class="badge-status" style="background:#f1f5f9; color:#334155;">Fortaleza - CE</span>
           <h3>Legislação Municipal</h3>
           <ul>
-            <li><strong>LC nº 159/2013:</strong> Código Tributário do Município.</li>
-            <li><strong>Decreto nº 13.716/2015:</strong> Regulamento do CTM e SUP.</li>
-            <li><strong>DESP Eletrônica:</strong> Arts. 82 a 88 do Decreto 13.716/2015.</li>
+            <li><strong>LC nº 159/2013:</strong> Código Tributário do Município</li>
+            <li><strong>Decreto nº 13.716/2015:</strong> Regulamento do CTM</li>
+            <li>Lista restrita de subitens no art. 676</li>
           </ul>
         </div>
 
-        <div class="card copiavel">
+        <div class="card">
           <span class="badge-status" style="background:#f1f5f9; color:#334155;">Canindé - CE</span>
           <h3>Legislação Municipal</h3>
           <ul>
-            <li><strong>Lei nº 1.839/2006:</strong> Código Tributário de Canindé.</li>
-            <li><strong>Recepção do DL 406/68:</strong> Cobrança fixa em cota UFM local.</li>
-            <li><strong>Setor Tributário:</strong> Tramitação administrativa presencial/online.</li>
+            <li><strong>Lei nº 1.839/2006:</strong> Código Tributário de Canindé</li>
+            <li>Recepção do Decreto-Lei 406/1968</li>
+            <li>Cobrança fixa em cota UFM local</li>
           </ul>
         </div>
-
       </div>
     </section>
 
   </main>
 
-  <footer class="copiavel">
+  <footer>
     <div class="container">
-      <p>© 2026 - Guia Tributário do ISS Fixo • Fortaleza &amp; Canindé - CE</p>
+      <p>© 2026 - Portal do ISS Fixo • Fortaleza & Canindé - CE</p>
     </div>
   </footer>
 
-  <script defer>
-    document.addEventListener('keydown', function(e) {
-      if (e.keyCode === 123 || (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {
-        e.preventDefault();
-        return false;
-      }
-      if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) {
-        e.preventDefault();
-        return false;
-      }
-    });
-
+  <script>
     function analisarElegibilidade() {
       const municipio = document.getElementById('municipio').value;
       const atividade = document.getElementById('atividade').value;
@@ -482,20 +481,23 @@
       }
 
       resultBox.style.display = "block";
-      resultBox.className = "result-box copiavel";
+      resultBox.className = "result-box";
+
+      const elegiveisFortaleza = [
+        '4.1', '4.2', '4.6', '4.8', '4.9', '4.11', '4.12', '4.13', '4.14', '4.16',
+        '5.1', '7.1', '17.13', '17.15', '17.18', '17.19'
+      ];
 
       const nomeMun = municipio === 'caninde' ? 'Canindé' : 'Fortaleza';
-      const refMun = municipio === 'caninde' 
-        ? 'CTM de Canindé (Lei nº 1.839/2006) & DL 406/1968' 
-        : 'LC 159/2013 & Decreto 13.716/2015 (Fortaleza)';
 
-      if (atividade === 'comercio') {
+      // Regras de impedimento
+      if (atividade === 'outros') {
         resultBox.classList.add('result-inapto');
         resultBadge.style.background = '#fecaca';
         resultBadge.style.color = '#991b1b';
-        resultBadge.innerText = `Fundamento: Art. 9º do Decreto-Lei nº 406/1968`;
-        resultTitle.innerText = "Inapto ao ISS Fixo";
-        resultText.innerText = `Atividades comerciais, industriais ou subitens não regulamentados em ${nomeMun} não se enquadram no regime de valor fixo, recolhendo o imposto sobre a receita bruta.`;
+        resultBadge.innerText = 'Inapto';
+        resultTitle.innerText = 'Atividade não elegível';
+        resultText.innerText = `A atividade selecionada não está prevista na lista de serviços que permitem o regime de cota fixa em ${nomeMun}.`;
         return;
       }
 
@@ -503,38 +505,58 @@
         resultBox.classList.add('result-inapto');
         resultBadge.style.background = '#fecaca';
         resultBadge.style.color = '#991b1b';
-        resultBadge.innerText = `Fundamento: ${refMun}`;
-        resultTitle.innerText = "Impedimento: Sócio Pessoa Jurídica";
-        resultText.innerText = `A legislação de ${nomeMun} veda o recolhimento fixo por sociedades que possuam PJs no quadro societário.`;
+        resultBadge.innerText = 'Inapto';
+        resultTitle.innerText = 'Impedimento: Sócio Pessoa Jurídica';
+        resultText.innerText = `A legislação de ${nomeMun} veda o recolhimento fixo por sociedades que possuam Pessoa Jurídica no quadro societário.`;
         return;
       }
 
-      if (socios === 'pluri') {
+      if (socios === 'pluriprofissional') {
         resultBox.classList.add('result-inapto');
         resultBadge.style.background = '#fecaca';
         resultBadge.style.color = '#991b1b';
-        resultBadge.innerText = `Fundamento: Art. 9º, § 3º do DL 406/1968`;
-        resultTitle.innerText = "Impedimento: Pluriprofissionalidade";
+        resultBadge.innerText = 'Inapto';
+        resultTitle.innerText = 'Impedimento: Pluriprofissionalidade';
         resultText.innerText = `Para fruir do ISS Fixo em ${nomeMun}, todos os sócios devem exercer e possuir habilitação na mesma profissão regulamentada.`;
         return;
       }
 
-      if (prestacao === 'terceirizada') {
+      if (prestacao === 'empresarial') {
         resultBox.classList.add('result-inapto');
         resultBadge.style.background = '#fecaca';
         resultBadge.style.color = '#991b1b';
-        resultBadge.innerText = `Fundamento: Art. 966 do Código Civil & DL 406/1968`;
-        resultTitle.innerText = "Impedimento: Elemento de Empresa";
+        resultBadge.innerText = 'Inapto';
+        resultTitle.innerText = 'Impedimento: Elemento de Empresa';
         resultText.innerText = `A ausência de prestação pessoal direta descaracteriza o benefício em ${nomeMun}, sujeitando a empresa à tributação variável sobre o faturamento.`;
         return;
       }
 
-      resultBox.classList.add('result-apto');
-      resultBadge.style.background = '#a7f3d0';
-      resultBadge.style.color = '#065f46';
-      resultBadge.innerText = `Fundamento: DL 406/1968, LC 123/2006 e ${refMun}`;
-      resultTitle.innerText = `Elegível ao ISS Fixo em ${nomeMun}`;
-      resultText.innerText = `A atividade selecionada enquadra-se nos subitens elegíveis da tabela de serviços de ${nomeMun}. Proceda com a solicitação junto ao órgão tributário municipal (${municipio === 'caninde' ? 'Setor de Tributos' : 'SEFIN Virtual via DESP'}).`;
+      // Análise final por município
+      if (municipio === 'fortaleza') {
+        if (elegiveisFortaleza.includes(atividade)) {
+          resultBox.classList.add('result-apto');
+          resultBadge.style.background = '#a7f3d0';
+          resultBadge.style.color = '#065f46';
+          resultBadge.innerText = 'Elegível';
+          resultTitle.innerText = 'Elegível ao ISS Fixo em Fortaleza';
+          resultText.innerText = 'Sua empresa atende aos requisitos da LC 159/2013 e do Decreto 13.716/2015. Proceda com a solicitação de reconhecimento junto à Secretaria Municipal das Finanças (SEFIN).';
+        } else {
+          resultBox.classList.add('result-inapto');
+          resultBadge.style.background = '#fecaca';
+          resultBadge.style.color = '#991b1b';
+          resultBadge.innerText = 'Inapto';
+          resultTitle.innerText = 'Atividade não elegível em Fortaleza';
+          resultText.innerText = 'Este subitem específico não está na lista restrita do art. 676 do Decreto 13.716/2015.';
+        }
+      } else {
+        // Canindé
+        resultBox.classList.add('result-apto');
+        resultBadge.style.background = '#a7f3d0';
+        resultBadge.style.color = '#065f46';
+        resultBadge.innerText = 'Elegível';
+        resultTitle.innerText = 'Elegível ao ISS Fixo em Canindé';
+        resultText.innerText = 'Canindé adota o regime com base no Decreto-Lei nº 406/1968. Sua sociedade uniprofissional com prestação pessoal se enquadra. Recomenda-se confirmar junto ao Setor Tributário do município.';
+      }
     }
   </script>
 </body>
