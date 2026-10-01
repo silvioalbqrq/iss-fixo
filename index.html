@@ -41,7 +41,28 @@
         <div class="banner-icon">⚖️</div>
         <div>
           <h3>O que é o ISS Fixo para Sociedades Uniprofissionais?</h3>
-          <p>Trata-se de um regime tributário especial assegurado pelo <strong>Decreto-Lei federal nº 406/1968 (art. 9º, §§ 1º e 3º)</strong> e pelas legislações municipais. Em vez de pagar entre <strong>2% e 5% sobre o faturamento bruto</strong>, a sociedade recolhe um valor fixo periódico por profissional legalmente habilitado (sócio ou empregado), gerando relevante economia tributária para prestadores de serviços intelectuais regulamentados.</p>
+          <p>Trata-se de um regime tributário especial assegurado pelo <strong>Decreto-Lei federal nº 406/1968 (art. 9º, §§ 1º e 3º)</strong> e pelas legislações municipais. Em vez de pagar entre <strong>2% e 5% sobre o faturamento bruto</strong> (conforme o subitem e o município), a sociedade recolhe um valor fixo periódico por profissional legalmente habilitado (sócio ou empregado), gerando relevante economia tributária para prestadores de serviços intelectuais regulamentados.</p>
+        </div>
+      </div>
+
+      <div class="info-banner">
+        <div class="banner-icon">📊</div>
+        <div>
+          <h3>Cota mensal por profissional (2026) — Fortaleza e Canindé</h3>
+          <p>Nas duas cidades a cota é fixada <strong>em reais</strong> (não em UFM), em cinco faixas conforme o número de profissionais habilitados da sociedade (sócios + empregados/temporários), considerando a soma de todos os estabelecimentos:</p>
+          <table class="legislation-table cotas-table">
+            <thead>
+              <tr><th>Profissionais habilitados</th><th>Cota por profissional</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Até 5</td><td>R$ 140,00</td></tr>
+              <tr><td>De 6 a 10</td><td>R$ 160,00</td></tr>
+              <tr><td>De 11 a 15</td><td>R$ 180,00</td></tr>
+              <tr><td>De 16 a 20</td><td>R$ 200,00</td></tr>
+              <tr><td>Mais de 20</td><td>R$ 220,00</td></tr>
+            </tbody>
+          </table>
+          <p class="hint-small">Base: art. 250 da LC 159/2013 (Fortaleza) e art. 250 da LC 2.384/2017 (Canindé).</p>
         </div>
       </div>
     </section>
@@ -66,7 +87,7 @@
               <select id="municipio" name="municipio" required>
                 <option value="">Selecione a cidade...</option>
                 <option value="fortaleza">Fortaleza - CE (LC 159/2013 & Dec. 13.716/2015)</option>
-                <option value="caninde">Canindé - CE (Lei Municipal 1.839/2006)</option>
+                <option value="caninde">Canindé - CE (LC 2.384/2017 &amp; arts. 249 a 252)</option>
               </select>
               <span class="field-hint">A legislação e o rol de subitens aceitos variam de acordo com o município.</span>
               <div class="field-error" id="err-municipio"></div>
@@ -80,7 +101,7 @@
               <select id="regime" name="regime" required>
                 <option value="">Selecione o regime tributário...</option>
                 <option value="presumido">Lucro Presumido ou Lucro Real (Regime Geral)</option>
-                <option value="simples_contabil">Simples Nacional - Escritório de Serviços Contábeis (Art. 18, §§ 18 e 22-A da LC 123/06)</option>
+                <option value="simples_contabil">Simples Nacional - Escritório de Serviços Contábeis (Art. 18, § 5º-B, XIV, e § 22-A da LC 123/06)</option>
                 <option value="simples_geral">Simples Nacional - Demais Profissões (Medicina, Advocacia, Odonto, etc.)</option>
               </select>
               <span class="field-hint">O Simples Nacional possui regras específicas quanto à segregação do ISS no PGDAS-D.</span>
@@ -105,12 +126,15 @@
                   <option value="4.13">4.13 – Ortóptica</option>
                   <option value="4.14">4.14 – Próteses sob encomenda</option>
                   <option value="4.16">4.16 – Psicologia</option>
-                  <option value="5.01">5.01 / 5.03 – Medicina veterinária e zootecnia</option>
+                  <option value="5.01">5.01 – Medicina veterinária e zootecnia</option>
+                  <option value="5.03">5.03 – Laboratórios de análise na área veterinária</option>
                 </optgroup>
                 <optgroup label="Ciências Exatas">
                   <option value="7.01">7.01 – Engenharia e Arquitetura (exceto agronomia, agrimensura e geologia)</option>
+                  <option value="7.11">7.11 – Decoração (a jardinagem, o corte e a poda de árvores estão excluídos do rol)</option>
                 </optgroup>
                 <optgroup label="Ciências Sociais Aplicadas / Humanas">
+                  <option value="10.03">10.03 – Agenciamento/corretagem de direitos de propriedade industrial, artística ou literária</option>
                   <option value="17.13">17.13 – Advocacia</option>
                   <option value="17.15">17.15 – Auditoria</option>
                   <option value="17.18">17.18 – Contabilidade</option>
@@ -120,7 +144,7 @@
                   <option value="outros">Outras atividades comerciais, hospitalares, laboratoriais com terceirização ou não listadas</option>
                 </optgroup>
               </select>
-              <span class="field-hint">A SEFIN Fortaleza exige enquadramento estrito nos subitens do Art. 676 do Dec. 13.716/2015.</span>
+              <span class="field-hint">O rol de subitens é taxativo e idêntico nos dois municípios: Art. 676, § 1º, I, do Dec. 13.716/2015 (Fortaleza) e Art. 249, § 1º, I, da LC 2.384/2017 (Canindé).</span>
               <div class="field-error" id="err-atividade"></div>
             </div>
 
@@ -134,9 +158,10 @@
                 <option value="uniprofissional">Uniprofissional (Todos os sócios têm a mesma habilitação legal)</option>
                 <option value="pluriprofissional">Pluriprofissional (Sócios de profissões ou áreas diferentes)</option>
                 <option value="pj">Possui sócio Pessoa Jurídica (Holding ou outra PJ no quadro societário)</option>
+                <option value="investidor">Possui sócio apenas investidor ou dirigente (não presta serviços pessoalmente)</option>
                 <option value="leigo">Possui sócio leigo / não habilitado para a atividade-fim</option>
               </select>
-              <span class="field-hint">O STJ e o CTM vedam sócio PJ e pluriprofissionalidade.</span>
+              <span class="field-hint">A lei veda sócio pessoa jurídica, sócio apenas investidor/dirigente e a pluriprofissionalidade (art. 249, § 1º, da LC 159/2013 e da LC 2.384/2017).</span>
               <div class="field-error" id="err-socios"></div>
             </div>
 
@@ -164,7 +189,7 @@
               <div class="field-error" id="err-numSocios"></div>
             </div>
 
-            <!-- 7. QUANTIDADE DE EMPREGADOS HABILITADOS (DL 406 ART 9 §3 E LC 159 ART 240) -->
+            <!-- 7. QUANTIDADE DE EMPREGADOS HABILITADOS (DL 406 ART 9 §3; LC 159/2013 ART 250; LC 2.384/2017 ART 250) -->
             <div class="field-group">
               <label for="numEmpregados">
                 7. Empregados / Terceiros Habilitados
@@ -190,12 +215,12 @@
                 9. Alíquota de ISS Variável de Referência (%)
               </label>
               <select id="aliquotaIss" name="aliquotaIss">
-                <option value="0.05" selected>5,0% (Alíquota padrão de serviços em Fortaleza / Canindé)</option>
-                <option value="0.04">4,0%</option>
-                <option value="0.03">3,0%</option>
+                <option value="0.05" selected>5,0% (demais subitens)</option>
+                <option value="0.04">4,0% (itens 4 e 5 em Canindé)</option>
+                <option value="0.03">3,0% (itens 4 e 5 em Fortaleza; 7.01 em Canindé)</option>
                 <option value="0.02">2,0% (Alíquota mínima constitucional)</option>
               </select>
-              <span class="field-hint">Alíquota incidente na apuração normal sobre o faturamento.</span>
+              <span class="field-hint">Preenchida automaticamente conforme o município e a atividade; pode ser ajustada manualmente. Alíquota incidente na apuração normal sobre o faturamento.</span>
             </div>
 
           </div>
@@ -243,8 +268,8 @@
                 <span class="card-foot" id="descIssFixo">Total de cotas por profissional</span>
               </div>
 
-              <div class="finance-card highlight-economy">
-                <span class="card-label">Economia Mensal Estimada</span>
+              <div class="finance-card highlight-economy" id="cardEconomia">
+                <span class="card-label" id="labelEconomia">Economia Mensal Estimada</span>
                 <strong class="card-value value-positive" id="valEconomiaMensal">R$ 0,00</strong>
                 <span class="card-foot" id="valEconomiaAnual">Economia anual de R$ 0,00</span>
               </div>
@@ -260,6 +285,8 @@
                 <div class="progress-fill" id="progressFill" style="width: 20%;"></div>
               </div>
             </div>
+
+            <p class="equilibrium-note" id="equilibriumNote"></p>
           </div>
 
           <!-- CHECKLIST E PRÓXIMOS PASSOS -->
@@ -298,7 +325,7 @@
           <h3>Sociedades Limitadas (LTDA)</h3>
           <ul>
             <li><strong>STF Tema 918 (RE 940.769):</strong> O Supremo Tribunal Federal declarou inconstitucionais as leis municipais que impedem a cota fixa unicamente pela adoção do modelo LTDA.</li>
-            <li><strong>STJ Tema 1323:</strong> Reafirma que a responsabilidade limitada dos sócios no âmbito societário não exclui a responsabilidade pessoal profissional no âmbito dos serviços prestados.</li>
+            <li><strong>STJ Tema 1323 (1ª Seção):</strong> a adoção da forma societária de responsabilidade limitada pela sociedade uniprofissional não constitui, por si só, impedimento ao regime fixo do ISS, desde que mantida a atuação uniprofissional.</li>
             <li><strong>Inaplicabilidade de Cláusulas Empresariais:</strong> O contrato social deve prever atuação uniprofissional e vedar elementos de empresa puros.</li>
           </ul>
         </div>
@@ -344,8 +371,8 @@
             <tr>
               <td><span class="badge-scope federal">Federal</span></td>
               <td><strong>Lei Complementar nº 123/2006</strong></td>
-              <td>Art. 18, §§ 18 e 22-A</td>
-              <td>Assegura recolhimento fixo do ISS para <strong>escritórios de contabilidade</strong> optantes pelo Simples Nacional. Para demais áreas, exige segregação no PGDAS-D.</td>
+              <td>Art. 18, § 5º-B, XIV, e § 22-A</td>
+              <td>Assegura recolhimento fixo do ISS para <strong>escritórios de contabilidade</strong> optantes pelo Simples Nacional. Para demais áreas, exige observância das regras federais de segregação no PGDAS-D.</td>
             </tr>
             <tr>
               <td><span class="badge-scope judicial">STF / STJ</span></td>
@@ -356,20 +383,20 @@
             <tr>
               <td><span class="badge-scope municipal">Fortaleza - CE</span></td>
               <td><strong>Lei Complementar Municipal nº 159/2013</strong></td>
-              <td>Arts. 238 a 244 (CTM)</td>
-              <td>Define os requisitos das Sociedades de Profissionais em Fortaleza, cobrança da cota mensal em UFM e deveres cadastrais periódicos.</td>
+              <td>Arts. 249 e 250 (CTM)</td>
+              <td>Define os requisitos das Sociedades de Profissionais em Fortaleza e a cota mensal <strong>em reais</strong> (R$ 140 / 160 / 180 / 200 / 220 por profissional, conforme o porte). O art. 245 fixa as alíquotas do regime variável (3% para os itens 4 e 5; 5% nos demais).</td>
             </tr>
             <tr>
               <td><span class="badge-scope municipal">Fortaleza - CE</span></td>
               <td><strong>Decreto Municipal nº 13.716/2015</strong></td>
-              <td>Art. 676 (Regulamento CTM)</td>
-              <td>Lista estrita de subitens de serviços admitidos pela SEFIN Fortaleza (4.01 a 4.16, 5.01, 7.01, 17.13, 17.15, 17.18, 17.19).</td>
+              <td>Arts. 676 e 677 (Regulamento CTM)</td>
+              <td>Rol taxativo de subitens admitidos pela SEFIN Fortaleza (4.01 a 4.16, 5.01, 5.03, 7.01, 7.11, 10.03, 17.13, 17.15, 17.18, 17.19) e tabela da cota por profissional. O art. 667 fixa as alíquotas do regime variável.</td>
             </tr>
             <tr>
               <td><span class="badge-scope municipal">Canindé - CE</span></td>
-              <td><strong>Lei Municipal nº 1.839/2006</strong></td>
-              <td>Código Tributário Municipal</td>
-              <td>Recepção da sistemática do DL 406/1968, estabelecendo a cobrança por cota fixa anual/mensal com base na Unidade Fiscal do Município de Canindé.</td>
+              <td><strong>Lei Complementar nº 2.384/2017</strong></td>
+              <td>Arts. 249 a 251 (CTM)</td>
+              <td>Recepção da sistemática do DL 406/1968, com o <strong>mesmo rol</strong> e a <strong>mesma cota em reais</strong> de Fortaleza. O art. 245 fixa as alíquotas (4% para os itens 4 e 5; 3% para 7.01; 5% nos demais).</td>
             </tr>
           </tbody>
         </table>
