@@ -4,25 +4,31 @@
    ========================================================================== */
 
 :root {
+  /* Tema corporativo Hub Fiscal (valores exatos) */
+  --navy: #0f2a44;
+  --navy2: #1a3a5c;
+  --gold: #c9a227;
+  --gold-2: #a8861b;
+  --goldbg: #faf5e8;
   /* Paleta de Cores Institucional */
-  --bg-dark-header: #0b192c;
-  --bg-dark-card: #1e293b;
+  --bg-dark-header: #0f2a44;
+  --bg-dark-card: #1a3a5c;
   --bg-surface: #ffffff;
-  --bg-canvas: #f8fafc;
-  --bg-subtle: #f1f5f9;
+  --bg-canvas: #f4f2ec;
+  --bg-subtle: #faf5e8;
   
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
+  --text-primary: #1e2a38;
+  --text-secondary: #3c4c5e;
+  --text-muted: #5d6e80;
   --text-inverse: #ffffff;
 
-  --border-color: #e2e8f0;
-  --border-focus: #2563eb;
+  --border-color: #dce4ec;
+  --border-focus: #c9a227;
 
-  /* Cores Semânticas */
-  --primary-blue: #2563eb;
-  --primary-blue-hover: #1d4ed8;
-  --primary-blue-light: #eff6ff;
+  /* Cores Semânticas (preservadas: vereditos/alertas do site) */
+  --primary-blue: #0f2a44;
+  --primary-blue-hover: #1a3a5c;
+  --primary-blue-light: #faf5e8;
 
   --success-green: #059669;
   --success-bg: #ecfdf5;
@@ -39,13 +45,14 @@
   --danger-border: #fecaca;
   --danger-text: #991b1b;
 
-  /* Sombras & Bordas */
+  /* Sombras & Bordas (padrão Hub Fiscal) */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
+  --radius: 14px;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(15,42,68,.08);
+  --shadow-lg: 0 8px 24px rgba(15,42,68,.08);
 
   --transition-speed: 0.2s;
 }
@@ -58,11 +65,16 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-canvas);
-  color: var(--text-primary);
+  font-family: Georgia, "Times New Roman", serif;
+  background-color: #f4f2ec;
+  color: #1e2a38;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid #c9a227;
+  outline-offset: 2px;
 }
 
 .container {
@@ -75,10 +87,10 @@ body {
    Header
    -------------------------------------------------------------------------- */
 .main-header {
-  background: linear-gradient(135deg, var(--bg-dark-header) 0%, #172554 100%);
+  background: linear-gradient(135deg, #0f2a44 0%, #1a3a5c 100%);
   color: var(--text-inverse);
   padding: 48px 0 40px;
-  border-bottom: 4px solid var(--primary-blue);
+  border-bottom: 3px solid #c9a227;
 }
 
 .header-container {
@@ -112,21 +124,47 @@ body {
 }
 
 .badge-primary {
-  background-color: var(--primary-blue);
-  color: #ffffff;
+  background-color: #c9a227;
+  color: #0f2a44;
 }
 
 .badge-accent {
-  background-color: #0d9488;
+  background-color: #1a3a5c;
   color: #ffffff;
+  border: 1px solid #c9a227;
 }
 
 .badge-outline {
-  border: 1px solid #64748b;
-  color: #cbd5e1;
+  border: 1px solid #c9a227;
+  color: #cdd9e1;
+}
+
+/* Botão GitHub no topo (estilo outline: transparente, borda branca, hover inverte) */
+.btn-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: Georgia, "Times New Roman", serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-github:hover {
+  background: #fff;
+  color: #0f2a44;
+  border-color: #fff;
 }
 
 .main-header h1 {
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 2.1rem;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -134,15 +172,15 @@ body {
 }
 
 .subtitle {
-  color: #94a3b8;
+  color: #cdd9e8;
   font-size: 1.05rem;
   margin-top: 8px;
   max-width: 680px;
 }
 
 .header-kpi-card {
-  background-color: var(--bg-dark-card);
-  border: 1px solid #334155;
+  background-color: #1a3a5c;
+  border: 1px solid #c9a227;
   border-radius: var(--radius-md);
   padding: 20px 24px;
   display: flex;
@@ -162,7 +200,7 @@ body {
 .kpi-value {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #34d399;
+  color: #c9a227;
   margin: 4px 0;
 }
 
@@ -187,8 +225,9 @@ body {
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: var(--primary-blue);
-  background-color: var(--primary-blue-light);
+  color: #0f2a44;
+  background-color: #faf5e8;
+  border: 1px solid #c9a227;
   padding: 3px 10px;
   border-radius: 6px;
   margin-bottom: 8px;
@@ -196,10 +235,13 @@ body {
 }
 
 .section-heading h2 {
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.65rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
+  color: #0f2a44;
+  border-left: 4px solid #c9a227;
+  padding-left: 12px;
 }
 
 .section-heading p {
@@ -216,10 +258,11 @@ body {
 }
 
 .info-banner {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-left: 5px solid var(--primary-blue);
-  border-radius: var(--radius-md);
+  background: #ffffff;
+  border: 1px solid #dce4ec;
+  border-left: 5px solid #c9a227;
+  border-top: 3px solid #c9a227;
+  border-radius: 14px;
   padding: 24px;
   display: flex;
   gap: 18px;
@@ -233,10 +276,11 @@ body {
 }
 
 .info-banner h3 {
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 6px;
-  color: var(--text-primary);
+  color: #0f2a44;
 }
 
 .info-banner p {
@@ -252,9 +296,10 @@ body {
 }
 
 .widget-container {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
+  background-color: #ffffff;
+  border: 1px solid #dce4ec;
+  border-top: 3px solid #c9a227;
+  border-radius: 14px;
   padding: 36px;
   box-shadow: var(--shadow-md);
 }
@@ -306,8 +351,8 @@ body {
 
 .field-group select:focus,
 .field-group input:focus {
-  border-color: var(--border-focus);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  border-color: #c9a227;
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.25);
 }
 
 .field-group input.input-error,
@@ -361,15 +406,15 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--primary-blue);
+  background-color: #0f2a44;
   color: #ffffff;
   flex: 2;
-  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 2px 4px rgba(15, 42, 68, 0.25);
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-blue-hover);
-  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.35);
+  background-color: #1a3a5c;
+  box-shadow: 0 4px 8px rgba(15, 42, 68, 0.35);
 }
 
 .btn-secondary {
@@ -497,7 +542,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--primary-blue);
+  color: #a8861b;
   font-weight: bold;
 }
 
@@ -568,7 +613,7 @@ body {
 }
 
 .value-negative { color: var(--danger-red); }
-.value-fixed { color: var(--primary-blue); }
+.value-fixed { color: #0f2a44; }
 .value-positive { color: var(--success-green); }
 
 .card-foot {
@@ -615,8 +660,8 @@ body {
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-secondary);
-  background-color: var(--bg-subtle);
-  border-left: 4px solid var(--primary-blue);
+  background-color: #faf5e8;
+  border-left: 4px solid #c9a227;
   border-radius: var(--radius-sm);
   padding: 10px 14px;
 }
@@ -693,9 +738,10 @@ body {
 }
 
 .feature-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
+  background-color: #ffffff;
+  border: 1px solid #dce4ec;
+  border-top: 3px solid #c9a227;
+  border-radius: 14px;
   padding: 28px;
   box-shadow: var(--shadow-sm);
   position: relative;
@@ -704,7 +750,7 @@ body {
 }
 
 .highlight-card {
-  border-top: 4px solid var(--success-green);
+  border-top: 3px solid #c9a227;
 }
 
 .feature-tag {
@@ -731,10 +777,11 @@ body {
 }
 
 .feature-card h3 {
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 14px;
-  color: var(--text-primary);
+  color: #0f2a44;
 }
 
 .feature-card ul {
@@ -751,7 +798,7 @@ body {
 
 .feature-card li::before {
   content: "•";
-  color: var(--primary-blue);
+  color: #c9a227;
   font-size: 1.3rem;
   position: absolute;
   left: 0;
@@ -766,9 +813,10 @@ body {
 }
 
 .legislation-table-wrapper {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
+  background-color: #ffffff;
+  border: 1px solid #dce4ec;
+  border-top: 3px solid #c9a227;
+  border-radius: 14px;
   overflow-x: auto;
   box-shadow: var(--shadow-sm);
 }
@@ -818,48 +866,23 @@ body {
 .badge-scope.municipal { background-color: #f1f5f9; color: #334155; }
 
 /* --------------------------------------------------------------------------
-   Rodapé
+   Rodapé padrão Hub Fiscal (contato/doações)
    -------------------------------------------------------------------------- */
-.main-footer {
-  background-color: var(--bg-dark-header);
-  color: #94a3b8;
-  padding: 48px 0 36px;
-  border-top: 1px solid #1e293b;
-}
-
-.footer-container {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.footer-brand h4 {
-  font-size: 1.15rem;
-  color: #ffffff;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.footer-brand p {
-  font-size: 0.9rem;
-}
-
-.footer-disclaimer {
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-sm);
-  padding: 18px 20px;
-}
-
-.footer-disclaimer p {
-  font-size: 0.85rem;
-  line-height: 1.6;
-  color: #cbd5e1;
-}
-
-.footer-copy {
-  font-size: 0.8rem;
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 20px;
-}
+.footer{background:#0f2a44;color:#cdd9e8;margin-top:20px;border-top:4px solid #c9a227}
+.footer strong{color:#fff}
+.footer strong.ft{font-family:Georgia,"Times New Roman",serif}
+.footer a{color:#fff}
+.footer-grid-wrap,.footer-base-wrap{max-width:1140px;margin:0 auto;padding-left:24px;padding-right:24px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1.4fr;gap:20px;padding-top:26px;padding-bottom:10px}
+.footer .donate-code{font-family:Consolas,monospace;font-size:12px;background:rgba(255,255,255,.1);padding:2px 6px;border-radius:6px;word-break:break-all}
+.footer .reveal-link{color:#c9a227;font-size:12px}
+.contact-icons{display:flex;gap:10px;margin-top:10px}
+.contact-icons a{width:40px;height:40px;display:grid;place-items:center;border:1px solid #c9a227;border-radius:50%;color:#c9a227}
+.contact-icons a:hover{background:#c9a227;color:#0f2a44}
+.contact-icons svg{width:20px;height:20px}
+.btn-outline-l{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:9px;padding:4px 8px;font-size:12px;margin-left:6px;cursor:pointer;font-family:inherit}
+.btn-outline-l:hover{background:#fff;color:#0f2a44}
+.footer-base{border-top:1px solid rgba(255,255,255,.15);padding-top:12px;padding-bottom:18px}
+.footer-base small,.footer small{color:#9db1c7}
+@media (max-width:768px){.footer-grid{grid-template-columns:1fr}}
+@media print{.footer,.main-footer{display:none !important}}

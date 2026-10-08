@@ -623,4 +623,50 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
 
+  // Rodapé padrão Hub Fiscal: copiar chaves de doação e revelar texto completo.
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const target = document.getElementById(btn.getAttribute('data-copy'));
+      if (!target) return;
+      const full = target.getAttribute('data-full') || target.textContent;
+      const done = function () {
+        const original = btn.textContent;
+        btn.textContent = 'Copiado!';
+        setTimeout(function () { btn.textContent = original; }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(full).then(done).catch(done);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = full;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-reveal]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.getElementById(link.getAttribute('data-reveal'));
+      if (!target) return;
+      const full = target.getAttribute('data-full');
+      if (!full) return;
+      if (target.dataset.revealed === '1') {
+        target.textContent = target.getAttribute('data-short') || target.textContent;
+        target.dataset.revealed = '';
+        link.textContent = link.getAttribute('data-reveal-label') || link.textContent;
+      } else {
+        target.setAttribute('data-short', target.textContent);
+        if (!link.getAttribute('data-reveal-label')) link.setAttribute('data-reveal-label', link.textContent);
+        target.textContent = full;
+        target.dataset.revealed = '1';
+        link.textContent = 'ocultar';
+      }
+    });
+  });
+
 });
